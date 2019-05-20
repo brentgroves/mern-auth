@@ -12,6 +12,7 @@ import Login from "./components/auth/Login";
 class App extends Component {
   render() {
     return (
+	<Provider store={store}>	
       <Router>
         <div className="App">
           <Navbar />
@@ -20,6 +21,7 @@ class App extends Component {
           <Route exact path="/login" component={Login} />
         </div>
       </Router>
+	</Provider>		
     );
   }
 }

@@ -4,11 +4,11 @@
   "description": "Mern Auth Example",
   "main": "server.js",
   "scripts": {
-	"client-install": "npm install --prefix client",  
+    "client-install": "npm install --prefix client",
     "start": "node server",
     "server": "npx nodemon server",
-	"client": "npm start --prefix client",
-	"dev": "concurrently \"npm run server\" \"npm run client\""
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "Brent Groves <brent.groves@gmail.com> (https://makercountry.com)",

@@ -136,10 +136,18 @@ Register.propTypes = {
   auth: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired
 };
+
+// redux calls this function with its state.
+//
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
 });
+
+// curried function.  call a function that returns a function then call the returned function.
+// registerUser = (userData, history) => dispatch => {
+// Register component now has access to Redux state and the registerUser curried function.
+//While it is easy to redirect within a component (can simply say this.props.history.push('/dashboard') for example), we can’t do that by default within an action. 
 export default connect(
   mapStateToProps,
   { registerUser }

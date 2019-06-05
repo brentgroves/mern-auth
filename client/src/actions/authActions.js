@@ -6,6 +6,13 @@ import {
   SET_CURRENT_USER,
   USER_LOADING
 } from "./types";
+// When we call prop.registerUser() from our code this function is not called directly.
+// prop.registerUser() is a parent function created from the React-Redux connect() function.
+// The React-Redux parent function then calls our action function which returns a the actual 
+// function which takes the dispatch parameter
+// parameter that it supplies.  The dispatch parameter is a function which calls the redux
+// reducer with the action type object.
+// Curried function. compose function.
 // Register User
 export const registerUser = (userData, history) => dispatch => {
   axios

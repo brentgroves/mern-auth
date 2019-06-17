@@ -4,6 +4,14 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
+/*
+:copen " Open the quickfix window
+:ccl   " Close it
+:cw    " Open it if there are "errors", close it otherwise (some people prefer this)
+:cn    " Go to the next error in the window
+:cnf   " Go to the first error in the next file
+:set switchbuf+=newtab
+*/
 class Register extends Component {
   constructor() {
     super();

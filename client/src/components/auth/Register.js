@@ -44,6 +44,9 @@ const newUser = {
 this.props.registerUser(newUser, this.props.history); 
   };
 render() {
+	//render() is invoked by React in the context of the component instance.
+	//so no need to bind() render.
+	//https://github.com/getify/You-Dont-Know-JS/blob/master/this%20%26%20object%20prototypes/ch2.md#lexical-this
     const { errors } = this.state;
 return (
       <div className="container">

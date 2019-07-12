@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
-const useRegisterForm = (callback) => {
-	const [inputs, setInputs] = useState({name:'',email:'',password:'',password2:''});	
-  	const handleSubmit = (event) => {
+const useDashboardForm = (callback) => {
+	const [inputs, setInputs] = useState({});	
+  	const handleLogoutClick = (event) => {
     	if (event) {
       		event.preventDefault();
     	}
@@ -15,9 +15,9 @@ const useRegisterForm = (callback) => {
 	}
 	
 	return {
-		handleSubmit,
+		handleLogoutClick,
 	  	handleInputChange,
 	  	inputs
 	};
 }
-export default useRegisterForm;
+export default useDashboardForm;

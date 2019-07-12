@@ -14,14 +14,13 @@ import useLoginForm from './hooks/useLoginForm';
 :set switchbuf+=newtab
 */
 const Login = ({auth,errors,loginUser,match,location,history}) => {
-	useEffect(() => {
-	    console.log('count changed', auth.isAuthenticated);
-	}, [auth.isAuthenticated])
 
 	useEffect(() => {
-		console.log('I just mounted!');
-		history.push("/dashboard");
-	},[history]);
+		if (auth.isAuthenticated){
+			history.push("/dashboard");
+		}
+
+	},[auth,history]);
 
 	const onSubmit = e => {
 		const userData = {

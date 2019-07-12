@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -14,6 +14,14 @@ import useLoginForm from './hooks/useLoginForm';
 :set switchbuf+=newtab
 */
 const Login = ({auth,errors,loginUser,match,location,history}) => {
+	useEffect(() => {
+	    console.log('count changed', auth.isAuthenticated);
+	}, [auth.isAuthenticated])
+
+	useEffect(() => {
+		console.log('I just mounted!');
+		history.push("/dashboard");
+	},[history]);
 
 	const onSubmit = e => {
 		const userData = {
@@ -25,7 +33,6 @@ const Login = ({auth,errors,loginUser,match,location,history}) => {
 
 	
 	const {inputs, handleInputChange, handleSubmit} = useLoginForm(onSubmit);
-
 	return (
 	      <div className="container">
 	        <div style={{ marginTop: "4rem" }} className="row">
@@ -63,8 +70,10 @@ const Login = ({auth,errors,loginUser,match,location,history}) => {
 	              <div className="input-field col s12">
 	                <input
 	                  onChange={handleInputChange}
+					  autoComplete={inputs.password == null ? "":inputs.password}
 	                  value={inputs.password}
-	                  id="password"
+					  error={inputs.password}
+					  name="password"
 	                  type="password"
 	                  className={classnames("", {
 	                    invalid: errors.password || errors.passwordincorrect

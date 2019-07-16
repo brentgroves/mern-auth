@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -15,6 +15,13 @@ import useRegisterForm from './hooks/useRegisterForm';
 :set switchbuf+=newtab
 */
 const Register = ({auth,errors,registerUser,match,location,history}) => {
+
+	useEffect(() => {
+		if (auth.isAuthenticated){
+			history.push("/dashboard");
+		}
+
+	},[auth,history]);
 
 	const onSubmit = e => {
 		console.log(inputs);
